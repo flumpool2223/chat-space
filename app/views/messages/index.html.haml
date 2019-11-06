@@ -2,8 +2,6 @@
 
   = render 'shared/side_bar'
 
-.messages
-  = render @messages
 
   .chat
     .header
@@ -22,33 +20,7 @@
         .right-header__button
           Edit
     .messages
-      .message
-        .upper-message
-          .upper-message__user-name
-            メンバー
-          .upper-message__date
-            2017/04/04
-        .lower-meesage
-          .lower-message__content
-            メッセージ
-      .message
-        .upper-message
-          .upper-message__user-name
-            メンバー
-          .upper-message__date
-            2017/04/04
-        .lower-meesage
-          .lower-message__content
-            メッセージ
-      .message
-        .upper-message
-          .upper-message__user-name
-            メンバー
-          .upper-message__date
-            2017/04/04
-        .lower-meesage
-          .lower-message__content
-            メッセージ
+      = render @messages
 
     .form
       = form_for [@group, @message] do |f|
@@ -57,4 +29,4 @@
           = f.label :image, class: 'form__mask__image' do
             = fa_icon 'picture-o', class: 'icon'
             = f.file_field :image, class: 'hidden'
-        = f.submit 'Send', class: 'form__submit'
+        = f.submit 'Send', "data-disable-with": "送信中...", id: 'chat-footer__send-btn',class: 'form__submit'
