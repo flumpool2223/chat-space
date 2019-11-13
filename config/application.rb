@@ -10,6 +10,7 @@ module ChatSpace
   class Application < Rails::Application
     config.generators do |g|
     end
+    config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja
   end
 end
